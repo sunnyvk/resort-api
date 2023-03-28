@@ -138,17 +138,25 @@ app.post('/upload',async(req,res)=>{
 //     }
 //  })
 
-//to get a daily attendence
-// app.get('/dailyattendence',async(req,res)=>{
-//     try{
-//         const dailyAttendence = await DailyAttendence.find({});
-//         res.status(200).json(dailyAttendence);
-//     }catch(error){
-//         res.status(500).json({message:error.message})
-//     }
-// })
+
+ app.get('/upload',async(req,res)=>{
+     try{
+         const  imageModel = await ImageModel.find({});
+         res.status(200).json( imageModel);
+     }catch(error){
+         res.status(500).json({message:error.message})
+     }
+ })
 
 
+ app.get('/bulk',async(req,res)=>{
+    try{
+        const  multiplesImage  = await MultiplesImage.find({});
+        res.status(200).json(multiplesImage );
+    }catch(error){
+        res.status(500).json({message:error.message})
+    }
+})
 
 mongoose.set("strictQuery",false)
 mongoose.connect('mongodb+srv://admin:Sunny2798@sunnyapi.kndypoa.mongodb.net/Resort-API?retryWrites=true&w=majority')
