@@ -10,6 +10,8 @@ app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }))
 
+app.use("/photos",express.static('uploads'));
+
 
 const ImageModel=require('./models/imageModel')
 const multiplesImageSchema=require('./models/imageModel');
@@ -157,6 +159,10 @@ app.post('/upload',async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 })
+
+
+
+
 
 mongoose.set("strictQuery",false)
 mongoose.connect('mongodb+srv://admin:Sunny2798@sunnyapi.kndypoa.mongodb.net/Resort-API?retryWrites=true&w=majority')
