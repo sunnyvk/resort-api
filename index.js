@@ -110,7 +110,7 @@ app.post('/upload',async(req,res)=>{
         else{
             const newImage= new ImageModel({
                 images:{
-                    data:req.file.filename,
+                    data:req.file.path,
                     contentType:'image/png'
                 },
                 price:req.body.price,

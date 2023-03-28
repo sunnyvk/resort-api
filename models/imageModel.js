@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const imageModelSchema = mongoose.Schema(
     {
         images:{
-            data:Buffer,
+
             contentType:String
         },
         price:{
